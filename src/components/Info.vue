@@ -9,10 +9,10 @@
   color: white;
   background-color: #4c4c4c;
 }
+
 .article-content {
   padding-top: 5px;
   margin-top: 50px;
-  /* border: 1px solid red; */
   color: #8f8f94;
   text-align: left;
   text-indent: 2em;
@@ -47,7 +47,7 @@ export default {
       '年以后,我却发现,在这个并不大的城市里,我没竟然一次都没有再遇到过,一次都没有</p>\n<p>也许这就是上天给的最好的结果</p>';
     var reg = new RegExp("\n", "g");
 
-    var str = con.replace(reg, "<br>")
+    var str = con.replace(reg, "<br>");
     this.content = str;
   }
 
