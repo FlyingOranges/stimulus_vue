@@ -82,6 +82,7 @@
   height: 30px;
   line-height: 30px;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 </style>
 
