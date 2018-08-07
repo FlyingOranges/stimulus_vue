@@ -30,7 +30,7 @@
       <span>{{ msg }}</span>
     </div>
     <div class="lists-content">
-      <v-lists></v-lists>
+      <v-lists v-bind:articles="articles"></v-lists>
       <div class="more-data" v-on:click="findMore">
         <span>查看更多>></span>
       </div>
@@ -40,6 +40,7 @@
 
 <script>
 import vLists from './lists/listsContent'
+import axios from 'axios'
 
 export default {
   name: 'Lists',
@@ -49,11 +50,22 @@ export default {
   data () {
     return {
       msg: 'hello',
-      nowMsg: ''
+      nowMsg: '',
+      articles: []
     }
   },
   created () {
+    var self = this;
+
     this.msg = '图文列表';
+    axios.get('http://dev.cj.cc/api/article/lists').then(function (response) {
+      var e = response.data;
+      if (e.code == 0) {
+        self.articles = e.data;
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
   },
   methods: {
     findMore: function () {

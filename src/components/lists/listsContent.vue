@@ -66,57 +66,14 @@
       <a href="javasrckpt:void(0);">{{ nowMsg }}</a>
     </div>
     <div class="lists-content">
-      <div class="lists" v-on:click='tapList'>
-        <img src="/static/images/60x60.gif" />
 
-        <span class="lists-content-title">夏日搭配哪家强,教你完成变身大作战</span>
-        <span class="lists-content-title content">你会不会真的以为我要做一个穿衣打扮的操作吧</span>
-      </div>
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
+      <div class="lists" v-on:click='tapList' v-for="item in articles">
+        <img v-bind:src="item.cover" />
 
-        <span class="lists-content-title">你喜欢大海，我爱过你</span>
-        <span class="lists-content-title content">阚清子和纪凌尘不得不说的故事</span>
+        <span class="lists-content-title">{{ item.title }}</span>
+        <span class="lists-content-title content">{{ item.intr }}</span>
       </div>
 
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">幸福,就是如此简单的事情</span>
-        <span class="lists-content-title content">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</span>
-      </div>
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">CBD天气简直是要热死人</span>
-        <span class="lists-content-title content">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</span>
-      </div>
-
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">幸福,就是如此简单的事情</span>
-        <span class="lists-content-title content">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</span>
-      </div>
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">CBD天气简直是要热死人</span>
-        <span class="lists-content-title content">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</span>
-      </div>
-
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">幸福,就是如此简单的事情</span>
-        <span class="lists-content-title content">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</span>
-      </div>
-      <div class="lists">
-        <img src="/static/images/60x60.gif" />
-
-        <span class="lists-content-title">CBD天气简直是要热死人</span>
-        <span class="lists-content-title content">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</span>
-      </div>
     </div>
 
   </div>
@@ -131,7 +88,7 @@ export default {
     }
   },
   props: [
-    'nowMsg'
+    'nowMsg', 'articles'
   ],
   methods: {
     tapList: function () {

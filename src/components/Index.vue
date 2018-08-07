@@ -107,7 +107,7 @@
       </div>
 
       <div class="jackyang-lists">
-        <v-lists v-bind:nowMsg="nowMsg"></v-lists>
+        <v-lists v-bind:nowMsg="nowMsg" v-bind:articles="articles"></v-lists>
         <div class="more-data" v-on:click="clickMore">
           <span>点击查看更多...</span>
         </div>
@@ -139,6 +139,7 @@ export default {
         '/static/images/shuijiao.jpg',
         '/static/images/yuantiao.jpg'
       ],
+      articles: []
 
     }
   },
@@ -146,8 +147,9 @@ export default {
     var self = this;
     axios.get('http://dev.cj.cc/api/index').then(function (response) {
       var e = response.data;
-      if(e.code == 0){
+      if (e.code == 0) {
         self.banners = e.data.banners
+        self.articles = e.data.articles
       }
     }).catch(function (error) {
       console.log(error);
