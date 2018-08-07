@@ -2,7 +2,7 @@
 
 > 闲来无聊的时候 自学了vue.js   做的一个入门小项目
 
-> 与之配套的api接口项目是用PHP的Laravel框架搭建的,有兴趣的朋友可以去看看 <a href="https://github.com/FlyingOranges/stimulus_laravel">>地址信息</a
+> 与之配套的api接口项目是用PHP的Laravel框架搭建的,有兴趣的朋友可以去看看 <a href="https://github.com/FlyingOranges/stimulus_laravel">地址信息</a>
 
 ## Build Setup
 
