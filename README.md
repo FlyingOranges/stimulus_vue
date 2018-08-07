@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+> 与之配套的api接口项目是用PHP的Laravel框架搭建的,有兴趣的朋友可以去看看 <a href="https://github.com/FlyingOranges/stimulus_laravel">>地址信息</a
+
 ## Build Setup
 
 ``` bash
