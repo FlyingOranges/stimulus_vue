@@ -4,7 +4,7 @@
     <!-- swiper -->
     <swiper :options="swiperOption">
       <div class="swiper-slide" v-for="banner in banners">
-        <img :src="banner">
+        <img v-bind:src="banner.src">
       </div>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>

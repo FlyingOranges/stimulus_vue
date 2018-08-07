@@ -66,7 +66,7 @@
       <a href="javasrckpt:void(0);">{{ nowMsg }}</a>
     </div>
     <div class="lists-content">
-      <div class="lists">
+      <div class="lists" v-on:click='tapList'>
         <img src="/static/images/60x60.gif" />
 
         <span class="lists-content-title">夏日搭配哪家强,教你完成变身大作战</span>
@@ -134,7 +134,9 @@ export default {
     'nowMsg'
   ],
   methods: {
-
+    tapList: function () {
+      this.$router.push({ path: '/info' });
+    }
   }
 }
 </script>

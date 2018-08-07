@@ -121,6 +121,7 @@
 <script>
 import vBanner from './banner/swiper'
 import vLists from './lists/listsContent'
+import axios from 'axios'
 
 export default {
   name: 'Index',
@@ -142,11 +143,19 @@ export default {
     }
   },
   created () {
-
+    var self = this;
+    axios.get('http://dev.cj.cc/api/index').then(function (response) {
+      var e = response.data;
+      if(e.code == 0){
+        self.banners = e.data.banners
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
   },
   methods: {
     clickMore: function () {
-      this.$router.push({ name: 'Lists', params: { keyworld: '图文列表' } })
+      this.$router.push({ path: 'lists' })
     }
   }
 }

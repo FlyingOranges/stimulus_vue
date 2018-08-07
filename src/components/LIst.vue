@@ -53,14 +53,13 @@ export default {
     }
   },
   created () {
-    this.msg = this.$route.params.keyworld;
+    this.msg = '图文列表';
   },
   methods: {
     findMore: function () {
       console.log('获取更多图文列表');
-    }
+    },
   }
-
 }
 </script>
 
