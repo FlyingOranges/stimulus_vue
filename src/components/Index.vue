@@ -122,6 +122,7 @@
 import vBanner from './banner/swiper'
 import vLists from './lists/listsContent'
 import axios from 'axios'
+import configGlobal from './../assets/config.js'
 
 export default {
   name: 'Index',
@@ -144,8 +145,10 @@ export default {
     }
   },
   created () {
+    var apiUrl = configGlobal.urlInfo.apiUrl;
+
     var self = this;
-    axios.get('http://dev.cj.cc/api/index').then(function (response) {
+    axios.get(apiUrl + 'api/index').then(function (response) {
       var e = response.data;
       if (e.code == 0) {
         self.banners = e.data.banners

@@ -41,6 +41,7 @@
 <script>
 import vLists from './lists/listsContent'
 import axios from 'axios'
+import configGlobal from './../assets/config.js'
 
 export default {
   name: 'Lists',
@@ -55,10 +56,11 @@ export default {
     }
   },
   created () {
+    var apiUrl = configGlobal.urlInfo.apiUrl;
     var self = this;
 
     this.msg = '图文列表';
-    axios.get('http://dev.cj.cc/api/article/lists').then(function (response) {
+    axios.get(apiUrl + 'api/article/lists').then(function (response) {
       var e = response.data;
       if (e.code == 0) {
         self.articles = e.data;
