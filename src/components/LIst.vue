@@ -32,7 +32,8 @@
     <div class="lists-content">
       <v-lists v-bind:articles="articles"></v-lists>
       <div class="more-data" v-on:click="findMore">
-        <span>查看更多>></span>
+        <span v-if="moreStatus">查看更多>></span>
+        <span v-else>没有更多数据</span>
       </div>
     </div>
   </div>
@@ -52,7 +53,9 @@ export default {
     return {
       msg: 'hello',
       nowMsg: '',
-      articles: []
+      articles: [],
+      page: 1,
+      moreStatus: true,
     }
   },
   created () {
@@ -63,7 +66,7 @@ export default {
     axios.get(apiUrl + 'article/lists').then(function (response) {
       var e = response.data;
       if (e.code == 0) {
-        self.articles = e.data;
+        self.articles = self.articles.concat(e.data.data);
       }
     }).catch(function (error) {
       console.log(error);
@@ -71,8 +74,28 @@ export default {
   },
   methods: {
     findMore: function () {
-      console.log('获取更多图文列表');
+      if (this.moreStatus) {
+        this.getListData();
+      }
     },
+    getListData: function () {
+      this.page = this.page + 1;
+      var apiUrl = configGlobal.urlInfo.apiUrl;
+      var self = this;
+
+      axios.get(apiUrl + 'article/lists', { params: { page: this.page } }).then(function (response) {
+        var e = response.data;
+        if (e.code == 0) {
+          if (e.data.data.length == 0) {
+            self.moreStatus = false;
+            return false;
+          }
+          self.articles = self.articles.concat(e.data.data);
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 }
 </script>
