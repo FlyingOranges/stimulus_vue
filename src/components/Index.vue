@@ -148,7 +148,7 @@ export default {
     var apiUrl = configGlobal.urlInfo.apiUrl;
 
     var self = this;
-    axios.get(apiUrl + 'api/index').then(function (response) {
+    axios.get(apiUrl + 'index').then(function (response) {
       var e = response.data;
       if (e.code == 0) {
         self.banners = e.data.banners

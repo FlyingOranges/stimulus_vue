@@ -19,7 +19,7 @@ export default new Router({
       component: ListPage
     },
     {
-      path: '/info',
+      path: '/info/:id',
       name: 'Info',
       component: InfoPage
     }

@@ -33,6 +33,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+import configGlobal from './../assets/config.js'
+
 export default {
   name: 'Info',
   data () {
@@ -42,6 +45,20 @@ export default {
     }
   },
   created () {
+    var self = this;
+    var apiUrl = configGlobal.urlInfo.apiUrl;
+
+    var id = this.$route.params.id;
+
+    axios.get(apiUrl + 'article/info/' + id).then(function (response) {
+      var e = response.data;
+      if(e.code == 0){
+        self.msg = e.data.title;
+        self.content = e.data.conent;
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
 
     var con = '<p>以前曾经无数次想过,再遇到她我该有怎样的表现才算完美</p>\n<p>是熟视无睹,插肩而过</p>\n<p>还' +
       '是相视一笑,一笑泯恩仇</p>\n<p>或者是牵着女朋友的手,告诉她我离开她只会过得更好</p>\n<p>可是在好几' +

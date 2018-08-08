@@ -67,7 +67,7 @@
     </div>
     <div class="lists-content">
 
-      <div class="lists" v-on:click='tapList' v-for="item in articles">
+      <div class="lists" v-on:click='tapList(item.id)' v-for="item in articles">
         <img v-bind:src="item.cover" />
 
         <span class="lists-content-title">{{ item.title }}</span>
@@ -91,8 +91,8 @@ export default {
     'nowMsg', 'articles'
   ],
   methods: {
-    tapList: function () {
-      this.$router.push({ path: '/info' });
+    tapList: function (id) {
+      this.$router.push({ path: '/info/' + id });
     }
   }
 }
