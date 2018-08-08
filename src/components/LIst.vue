@@ -31,8 +31,8 @@
     </div>
     <div class="lists-content">
       <v-lists v-bind:articles="articles"></v-lists>
-      <div class="more-data" v-on:click="findMore">
-        <span v-if="moreStatus">查看更多>></span>
+      <div class="more-data">
+        <span v-if="moreStatus" v-on:click="findMore">查看更多>></span>
         <span v-else>没有更多数据</span>
       </div>
     </div>
