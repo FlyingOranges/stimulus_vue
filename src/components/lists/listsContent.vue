@@ -46,7 +46,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 300px;
+  width: 270px;
 
   pointer-events: none;
 }
