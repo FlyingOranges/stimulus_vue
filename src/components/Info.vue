@@ -17,7 +17,14 @@
   text-align: left;
   text-indent: 2em;
   font-size: 14px;
-  margin-left: 1em;
+}
+
+.article-content >>> img {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2px;
+  width: 95%;
 }
 </style>
 
@@ -52,7 +59,7 @@ export default {
 
     axios.get(apiUrl + 'article/info/' + id).then(function (response) {
       var e = response.data;
-      if(e.code == 0){
+      if (e.code == 0) {
         self.msg = e.data.title;
         self.content = e.data.conent;
       }
