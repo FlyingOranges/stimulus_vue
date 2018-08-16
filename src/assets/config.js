@@ -1,5 +1,5 @@
 const urlInfo = {
-  apiUrl: "http://dev.ciji.c/api/"
+  apiUrl: "http://api.pengsongyang.com/api/"
 }
 
 export default { urlInfo }
